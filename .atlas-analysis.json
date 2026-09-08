@@ -1,0 +1,68 @@
+{
+  "projectType": "saas",
+  "projectName": "Wild Guess & Match",
+  "projectDescription": "An interactive browser-based learning game for kids that teaches animal recognition through a guessing game, a memory-matching game, a creative drawing studio, and a live daily leaderboard.",
+  "theme": "almond",
+  "primaryColor": "#0c040c",
+  "lightColor": "#3fdfef",
+  "darkColor": "#34b5f6",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guide",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "getting-started/create-profile",
+              "getting-started/earning-coins"
+            ]
+          },
+          {
+            "group": "Games",
+            "pages": [
+              "games/guess-game",
+              "games/match-game",
+              "games/drawing-studio"
+            ]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/leaderboard",
+              "features/sound-music",
+              "features/animals-library"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Animal Guess Game with streak-based coin rewards and adaptive difficulty",
+    "Memory Match Game with multiple difficulty levels (Easy / Medium / Hard) and four match categories (Name, Food, Habitat, Object)",
+    "Drawing Studio unlockable with 50 coins — supports brush, eraser, and animal stamps with undo and save-to-gallery",
+    "Daily Leaderboard showing top 10 players with a live UTC-midnight reset countdown",
+    "Parent Gate math-challenge to protect profile creation from unsupervised access",
+    "Player profiles with nickname and animal avatar selection",
+    "Coin economy synced to a cloud backend (MongoDB)",
+    "Synthesized background music and sound effects with per-category mute controls",
+    "Text-to-speech narration for animal names and game prompts",
+    "Progressive Web App (PWA) support for offline-friendly play",
+    "Responsive layout — desktop sidebar and mobile bottom nav"
+  ],
+  "publicApiSurface": [
+    "GET /api/player?playerId={id} — fetch player profile (coins, studioUnlocked, avatarId)",
+    "POST /api/player — create or update player profile (playerId, nickname, avatarId, coins, studioUnlocked)",
+    "POST /api/score — submit a game score (playerId, mode, score, coinsEarned); returns validated newCoinBalance",
+    "GET /api/leaderboard/daily?playerId={id} — fetch today's top-10 leaderboard and the requesting player's rank"
+  ]
+}
